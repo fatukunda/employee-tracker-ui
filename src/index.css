@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: Poppins;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), uri("./fonts/Poppins-Regular.ttf") format("truetype");
+}
