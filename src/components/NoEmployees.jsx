@@ -8,14 +8,14 @@ const NoEmployees = ({ showModal }) => {
       <img src={noemployeesImg} alt="No ooks" style={{ width: "300px" }} />
       <h4 className="mt-4 mb-4">
         <FontAwesomeIcon icon={faExclamation} className="mr-2" />
-        You have not registered any employees yet!
+        You have not registered any Employees yet!
       </h4>
       <button
         className="btn btn-info btn-lg "
         data-toggle="modal"
         onClick={showModal}
       >
-        <FontAwesomeIcon icon={faPlus} className="mr-2" /> Add a employee
+        <FontAwesomeIcon icon={faPlus} className="mr-2" /> Add an Employee
       </button>
     </div>
   );

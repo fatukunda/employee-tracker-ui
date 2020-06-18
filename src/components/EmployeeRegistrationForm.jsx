@@ -62,7 +62,7 @@ const EmployeeRegistrationForm = ({ handleClose }) => {
         placeholder="Salary Scale"
         onChange={handleFieldChange}
         value={fields.salaryScale}
-      />;
+      />
       {error ? <Alert alertype="alert-danger" message={error.message} /> : null}
       <button type="submit" className="btn btn-info btn-block mb-4 form-btn">
         {createLoading

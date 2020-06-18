@@ -23,7 +23,7 @@ const SearchForm = () => {
     <form className="form">
       <Input
         type="search"
-        placeholder="Search employee by title or author"
+        placeholder="Search Employee by name, title, category, or salary scale"
         icon={faSearch}
         styles="mr-sm-2"
         value={searchWord}

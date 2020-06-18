@@ -4,20 +4,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import AppModal from "./AppModal";
 import Loader from "./Loader";
-import { deleteemployee } from "../store/actions/employeeActions";
+import { deleteEmployee } from "../store/actions/employeeActions";
 import EmployeeEditForm from "../components/EmployeeEditForm";
 
 const Employee = ({ employee }) => {
   const [editFormVisible, setEditFormVisible] = useState(false);
   const deleteLoading = useSelector(
-    (state) => state.employeeReducer.deleteLoading,
+    (state) => state.employeeReducer.deleteLoading
   );
   const dispatch = useDispatch();
   const editHandler = () => {
     setEditFormVisible(true);
   };
   const deleteHandler = () => {
-    dispatch(deleteemployee(employee.id));
+    dispatch(deleteEmployee(employee.id));
   };
   const hideEditModal = () => {
     setEditFormVisible(false);
@@ -28,13 +28,13 @@ const Employee = ({ employee }) => {
         <div className="flip-card-inner">
           <div className="flip-card-front">
             <h4 className="mt-4">{employee.name}</h4>
-            <p>{employee.title}</p>
-            <p>{employee.category}</p>
+            <p className="mt-4">{employee.title}</p>
+            <p className="mt-4">{employee.category}</p>
           </div>
           <div className="flip-card-back">
             <h4 className="mt-4">{employee.name}</h4>
-            <p>{employee.title}</p>
-            <p>{employee.category}</p>
+            <p className="mt-4">{employee.title}</p>
+            <p className="mt-4">{ `${employee.category} - ${employee.salaryScale}`}</p>
             <div className="mt-4">
               <button
                 className="btn btn-sm btn-warning mr-2"
@@ -49,18 +49,16 @@ const Employee = ({ employee }) => {
                 style={{ width: "5rem" }}
                 onClick={deleteHandler}
               >
-                {deleteLoading
-                  ? (
-                    <Loader
-                      spinnerSize="spinner-border-sm"
-                      spinnerColor="text-warning"
-                    />
-                  )
-                  : (
-                    <span>
-                      <FontAwesomeIcon icon={faTrash} className="mr-2" /> Delete
-                    </span>
-                  )}
+                {deleteLoading ? (
+                  <Loader
+                    spinnerSize="spinner-border-sm"
+                    spinnerColor="text-warning"
+                  />
+                ) : (
+                  <span>
+                    <FontAwesomeIcon icon={faTrash} className="mr-2" /> Delete
+                  </span>
+                )}
               </button>
             </div>
           </div>

@@ -1,84 +1,77 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import ImageUploader from "react-images-upload";
+import { faUser, faUserTie, faBox, faMoneyCheck } from "@fortawesome/free-solid-svg-icons";
 import Input from "./Input";
 import Alert from "./Alert";
 import { useForm } from "../libs/hooks";
-import { editemployee, updateImage } from "../store/actions/employeeActions";
+import { editemployee } from "../store/actions/employeeActions";
 
 const EmployeeEditForm = ({ employee }) => {
   const dispatch = useDispatch();
   const editLoading = useSelector((state) => state.employeeReducer.editLoading);
   const error = useSelector((state) => state.employeeReducer.error);
-  const [image, setImage] = useState("");
   const [fields, handleFieldChange] = useForm({
-    isbn: employee.isbn,
+    name: employee.name,
     title: employee.title,
-    author: employee.author,
+    category: employee.category,
+    salaryScale: employee.salaryScale
   });
-  const handleImageUpload = (image) => {
-    setImage(image);
-  };
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { isbn, title, author } = fields;
+    const { name, title, category, salaryScale } = fields;
     const employeeDetails = {
-      isbn,
+      name,
       title,
-      author,
+      category,
+      salaryScale
     };
-    if (image[0]) {
-      const imageData = new FormData();
-      imageData.append("image", image[0]);
-      dispatch(updateImage(imageData, employee._id));
-    }
-    dispatch(editemployee(employeeDetails, employee._id));
+    dispatch(editemployee(employeeDetails, employee.id));
   };
   return (
     <form onSubmit={handleSubmit}>
       <Input
         icon={faUser}
         type="text"
-        name="isbn"
-        placeholder="employee ISBN"
+        name="name"
+        placeholder="Employee Name"
         onChange={handleFieldChange}
-        value={fields.isbn}
+        value={fields.name}
       />
       <Input
-        icon={faUser}
+        icon={faUserTie}
         type="text"
         name="title"
-        placeholder="employee Title"
+        placeholder="Employee Title"
         onChange={handleFieldChange}
         value={fields.title}
       />
       <Input
-        icon={faUser}
-        type="author"
-        name="author"
-        placeholder="Author"
+        icon={faBox}
+        type="text"
+        name="category"
+        placeholder="Category"
         onChange={handleFieldChange}
-        value={fields.author}
+        value={fields.category}
       />
-      <ImageUploader
-        withIcon={true}
-        buttonText="Upload employee photo"
-        onChange={handleImageUpload}
-        imgExtension={[".jpg", ".gif", ".png", "jpeg"]}
-        maxFileSize={5242880}
-        name="image"
-        singleImage={true}
+      <Input
+        icon={faMoneyCheck}
+        type="text"
+        name="salaryScale"
+        placeholder="Salary Scale"
+        onChange={handleFieldChange}
+        value={fields.salaryScale}
       />
       {error ? <Alert alertype="alert-danger" message={error.message} /> : null}
       <button type="submit" className="btn btn-info btn-block mb-4 form-btn">
-        {editLoading ? (
-          <div className="spinner-border spinner-border-sm" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
-        ) : (
-          "Save employee"
-        )}
+        {editLoading
+          ? (
+            <div className="spinner-border spinner-border-sm" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
+          )
+          : (
+            "Save Changes"
+          )}
       </button>
     </form>
   );

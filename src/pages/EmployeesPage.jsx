@@ -38,7 +38,7 @@ const EmployeesPage = () => {
           <div className="col-md-6">
             {employees.length > 0 ? (
               <button
-                className="btn float-right btn-success"
+                className="btn float-right btn-info"
                 data-toggle="modal"
                 data-target="#exampleModalCenter"
                 onClick={showModal}

@@ -1,7 +1,7 @@
-## employees Management Application
+## Employee Manager
 
-This web application helps users to quickly create and manage a list of their favorite employees.
-It consumes [this](https://github.com/fatukunda/relworx_employee_manager) REST API.
+This web application helps HR managers to quickly create and manage a list of employees.
+It consumes [this](https://github.com/fatukunda/employee-tracker) REST API.
 
 ### Getting Started
 
@@ -13,11 +13,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 #### Installing
 
-- clone this repository on your local computer by running `git clone https://github.com/fatukunda/relworx_employees_ui.git`.
+- clone this repository on your local computer by running `git clone https://github.com/fatukunda/employee-tracker-ui`.
 - Install dependencies by running `yarn install` or `npm install`.
 - Run the development server by running the commant `yarn start` on your terminal.
-- The application should open in your browser on localhost:300.
-- This app is only the frontend of the application. If you want the API it consumes, then clone it from [here](https://github.com/fatukunda/relworx_employee_manager)
+- The application should open in your browser on localhost:3000.
+- This app is only the frontend of the application. If you want the API it consumes, then clone it from [here](https://github.com/fatukunda/employee-tracker-ui)
 
 ### Running the tests
 
@@ -25,7 +25,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Deployment
 
-- A working app is hosted on Netlify [here](https://relworxemployees.netlify.app/)
+- A working app is hosted on Netlify [here](https://tugende-employees-tracker.netlify.app/)
 
 ### Built With
 

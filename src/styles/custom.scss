@@ -1,5 +1,4 @@
 // Override default variables before the import
-$body-bg: #d9eef9;
 // Import Bootstrap and its default variables
 @import "~bootstrap/scss/bootstrap.scss";
 
@@ -19,7 +18,7 @@ $body-bg: #d9eef9;
   padding-top: 3rem;
 }
 .brand-title {
-  color: #1d3b6c !important;
+  color: #fff !important;
 }
 .no-account {
   margin-top: 4rem;
@@ -43,7 +42,7 @@ $body-bg: #d9eef9;
 
 // Dashboard styles
 .dash-navbar {
-  background-color: #d9eef9;
+  background-color: #eb0a6d;
   box-shadow: 5px 10px 10px #888888;
 }
 .main-container {
@@ -92,6 +91,10 @@ $body-bg: #d9eef9;
 /* Style the back side */
 .flip-card-back {
   background-color: #2a3950;
-  color: white;
+  color: #fff;
   transform: rotateY(180deg);
+}
+.flip-card-front {
+  background-color: #280772;
+  color: #fff;
 }
